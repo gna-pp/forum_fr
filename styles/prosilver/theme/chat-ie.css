@@ -1,0 +1,14 @@
+/**
+* styles/prosilver/theme/chat-ie.css
+*
+* @package Chat
+* @version 0.2
+* @copyright (c) 2008 phpBB3.PL Group
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+
+#chatbox #chat_messages {
+	overflow: none;
+	height: auto;
+}

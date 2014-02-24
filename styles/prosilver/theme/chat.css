@@ -1,0 +1,88 @@
+/**
+* styles/prosilver/theme/chat.css
+*
+* @package Chat
+* @version 0.2
+* @copyright (c) 2008 phpBB3.PL Group
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+
+#chatbox #chat_messages {
+	overflow: auto;
+	height: 200px;
+}
+
+#chatbox #chat_messages .chat_date {
+	font-size: 1.4em;
+}
+
+#chatbox #chat_messages li {
+	padding: 5px;
+}
+
+#chatbox #chat_messages li.new {
+	background-color: #ecd5d8; /* <------------------------------------ You might want to change it. It's a good idea to copy it from div.rules. */
+}
+
+#chatbox #chat_messages li .chat_info {
+	float: left;
+
+	width: 125px;
+	border-right: 1px solid white;
+
+	position: relative;
+}
+
+#chatbox #chat_messages li .chat_info .chat_actions {
+	bottom: 0pt;
+	font-weight: bold;
+	position: absolute;
+	right: 7px;
+}
+
+#chatbox #chat_messages li .chat_text {
+	margin-left: 133px;
+}
+
+#chatbox #chat_messages li .chat_clear {
+	clear: both;
+}
+
+#chatbox #chat_posting {
+	position: relative;
+	margin-top: 4px;
+}
+
+#chatbox #chat_posting span {
+	position: absolute;
+	color: white;
+	top: 2px;
+	left: 2px;
+	font-size: 1.2em;
+}
+
+#chatbox #chat_posting fieldset {
+	margin-left: 131px;
+}
+
+#chatbox #chat_posting fieldset #chat_posting_submit {
+	float: right;
+	width: 100px;
+}
+
+#chatbox #chat_posting fieldset div {
+	margin-right: 120px;
+	margin-top: 1px;
+}
+
+#chatbox #chat_posting fieldset div input {
+	width: 100%;
+}
+
+#chatbox #chat_login_post {
+	color: white;
+	top: 2px;
+	left: 2px;
+	font-size: 1.1em;
+}

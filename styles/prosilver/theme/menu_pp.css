@@ -1,0 +1,44 @@
+﻿body
+{
+	background-image : url('img/gradient.png');
+	background-repeat : repeat-x;
+	text-align: left;
+	padding-top:15px;
+	font-family: Arial;
+}
+
+#header {background-image: url("img/header.png");background-repeat:no-repeat;height:160px;width:100%;}
+
+/*
+Section NAVIGATION Schemes/red
+*/
+div#padd-categories { padding-top:110px;}
+div#padd-categories ul { background: #717E86;border-radius:8px;padding: 0; }
+div#padd-categories ul li {background: transparent url('img/bd-cat-item.gif') right top no-repeat; }
+
+
+div#padd-categories { height: 39px; background: transparent /*url('img/bg-cat.gif') left top repeat-x*/; overflow:hidden; }
+div#padd-categories h2 { display: none; }
+div#padd-categories div.padd-interior { width: 960px; height: 39px; margin: 0 auto; padding: 0; }
+div#padd-categories ul { display: block; list-style: none; margin: 0; padding: 0; height: 39px; z-index:999999; }
+div#padd-categories ul li { display: block; margin: 0; padding: 0 2px 0 0; float: left; height: 39px; }
+div#padd-categories ul li a:link, div#padd-categories ul li a:visited { font: bold 12px/39px Arial,Helvetica,sans-serif; color: /*#97be0d*/#fff;	/*text-shadow: 1px 1px #000;*/ text-transform: uppercase; letter-spacing: 0.1em;	display: block; margin: 0; padding: 0 15px; height: 39px;	text-decoration: none; }
+div#padd-categories ul li a:hover, div#padd-categories ul li a:active,
+div#padd-categories ul li.on a:link, div#padd-categories ul li.on a:visited { background-position: left bottom; }
+
+/* Navigation SOUS LISTE (Jusqu'a 5 niveaux) */
+div#padd-categories li ul { background:none;	background-color:#333; position: absolute; left: -999em; padding:0; }
+div#padd-categories li ul li{ height: 39px; padding:0;	min-width:140px;	width:100%; }
+div#padd-categories li ul li a:link, div#padd-categories li ul li a:visited{ background: #505C65 left top;color:#fff; }
+div#padd-categories li ul li a:hover, div#padd-categories li ul li a:active,
+div#padd-categories li ul li.on a:link, div#padd-categories li ul li.on a:visited { background: #b1b1b1 left top repeat-x;	background-position: left bottom; }
+
+html>body div#padd-categories li ul li { clear:both; }
+div#padd-categories li ul ul {	margin:-9px 0 0 60px;	min-width:100%;float:left; }
+div#padd-categories li ul ul li , div#padd-categories li ul ul ul li{ overflow:hidden; float:left; }
+div#padd-categories li:hover ul ul, div#padd-categories li:hover ul ul ul, div#padd-categories li:hover ul ul ul ul { left: -999em; }
+div#padd-categories li:hover ul,
+div#padd-categories li li:hover ul,
+div#padd-categories li li li:hover ul,
+div#padd-categories li li li li:hover ul { left: auto; min-height: 0; }
+div#padd-categories li ul li a:link, div#padd-categories li ul li a:visited { height: 39px;}div#padd-categories li ul li a:hover, div#padd-categories li ul li a:active, div#padd-categories li ul li.on a:link, div#padd-categories li ul li.on a:visited {color:#d31141;}

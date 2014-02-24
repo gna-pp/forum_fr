@@ -1,0 +1,494 @@
+/* subsilver2 Breizh Shoutbox Styles
+   Rollover buttons and backgrounds
+   By Sylver35  http://breizh-portal.com
+----------------------------------------*/
+#msg > li.row1, #msg > li.row2 {
+	display: inline;
+	list-style-type: none;
+	margin: 0;
+	height: auto;
+	width: 98%;
+	float: left;
+	padding: 1px;
+}
+#msg > li > dl{
+	vertical-align: middle;
+	width: 100%;
+	padding: 0;
+}
+#msg > li > dl > dt{
+	width: auto;
+	margin-right: 0px;
+	padding-right: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+#msg > li > dl > dd > input{
+	margin: 3px;
+}
+#msg > li > dl > dd#msgbody{
+	display: inline;
+	padding: 3px 0 1px 2px;
+	vertical-align: middle;
+	float: none;
+}
+#base_ul {
+	list-style: none;
+	margin: 0;
+}
+#url_more {
+	white-space: nowrap;
+}
+#onText {
+	display: inline-block;
+	float: right;
+	margin-right: 8px;
+	font-size: 1.1em;
+}
+#h3_action_title {
+	margin: 0 0 4px 0;
+	display: inline-block;
+	float: left;
+	border-bottom: none;
+}
+#h3user {
+	padding-left: 1.8em;
+	display: inline-block;
+}
+input#chat_message, input#shout_user1 {
+	background-color: white;
+}
+a.action-user {
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+}
+.picker {
+	height: 16px;
+	padding: 2px;
+	margin-right: 8px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #666;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.shout-text-user {
+	width: 310px;
+	padding: 2px;
+	font-size: 1em;
+	margin: 5px 10px 5px 5px;
+	vertical-align: middle;
+	border: 1px solid #C0C0C0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.div_sound {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	left: -1000px;
+	top: -1000px;
+}
+div.shout_rules {
+	width: 100%;
+	padding: 3px;
+	overflow: auto;
+}
+ul.ul_rules {
+	padding: 5px;
+	border-bottom: 1px solid #CCCCCC;
+}
+li.background_sub {
+	width: 100%;
+}
+.rtl msg > li.row1, .rtl msg > li.row2 {
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	height: auto;
+	width: 98%;
+	float: right;
+}
+.rtl msg > li > dl > dt{
+	width: auto;
+	margin-left: 0px;
+	padding-left: 1px;
+}
+.rtl msg > li > dl > dd.rtl msgbody{
+	display: inline;
+	padding: 2px 1px 0 3px;
+	vertical-align: middle;
+	float: none;
+}
+.profile-shout {
+	margin: 0 8px;
+	font-size: 1em;
+}
+.shout-chars {
+	padding-top: 2px;
+	font-size: 1.4em;
+	text-align: center;
+	margin: 0 auto;
+}
+.shout-zoom  {
+	padding-top: 15px;
+	font-size: 3.5em;
+	text-align: center;
+	margin: 0 auto;
+}
+.shout-zoom2 {
+	padding-top: 5px;
+	font-size: 1.1em;
+	text-align: center;
+	margin: 0 auto;
+}
+ul.topiclist li.shoutexemple {
+	width: 50%;
+	margin: 10px 0 10px 20px;
+	padding: 5px;
+	border: none;
+}
+div.div-sound {
+	padding-top: 8px;
+	padding-left: 150px;
+	width: 70%;
+	text-align: left;
+}
+a.button_shout, input.button_shout, a.button_shout:hover, input.button_shout:hover {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	padding: 0 5px 2px 5px;
+	width: 22px;
+	height: 21px;
+	border: 0 none;
+	margin-top: 2px;
+	cursor: pointer;
+}
+a.button_shout_l, input.button_shout_l, a.button_shout_l:hover, input.button_shout_l:hover {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	padding: 0 5px 3px 0;
+	width: 22px;
+	height: 22px;
+	border: 0px;
+	cursor: pointer;
+}
+li.button_background, dt.button_background, div.button_background{
+	background-repeat: repeat;
+	width: auto;
+	height: auto;
+}
+a.button_shout_connect, input.button_shout_connect, a.button_shout_connect_on, input.button_shout_connect_on, a.button_shout_connect:hover, input.button_shout_connect:hover, a.button_shout_connect_on:hover, input.button_shout_connect_on:hover {
+	-webkit-transition-duration: 0.25s;
+	-webkit-transition-property: all;
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-duration: 0.25s;
+	-moz-transition-property: all;
+	-moz-transition-timing-function: ease-in-out;
+	transition-duration: 0.25s;
+	transition-property: all;
+	transition-timing-function: ease-in-out;
+	background-image: url("./images/shout/connect.png");
+}
+a.button_shout_connect, input.button_shout_connect {
+	background-position:0 0;
+	width:20px;
+	height:20px;
+}
+a.button_shout_connect_on, input.button_shout_connect_on {
+	background-position:0 -20px;
+	width:20px;
+	height:20px;
+}
+a.button_shout_connect:hover, input.button_shout_connect:hover, a.button_shout_connect_on:hover, input.button_shout_connect_on:hover {
+	background-position:0 -40px;
+	width:20px;
+	height:20px;
+}
+a.button_shout_del, input.button_shout_del, a.button_shout_del_no, input.button_shout_del_no, a.button_shout_del:hover, input.button_shout_del:hover
+a.button_shout_ip, input.button_shout_ip, a.button_shout_ip_no, input.button_shout_ip_no, a.button_shout_ip:hover, input.button_shout_ip:hover
+a.button_shout_edit, input.button_shout_edit, a.button_shout_edit_no, input.button_shout_edit_no, a.button_shout_edit:hover, input.button_shout_edit:hover 
+a.button_shout_bold, input.button_shout_bold, a.button_shout_bold_no, input.button_shout_bold_no, a.button_shout_bold:hover, input.button_shout_bold:hover
+a.button_shout_italic, input.button_shout_italic, a.button_shout_italic_no, input.button_shout_italic_no, a.button_shout_italic:hover, input.button_shout_italic:hover
+a.button_shout_under, input.button_shout_under, a.button_shout_under_no, input.button_shout_under_no, a.button_shout_under:hover, input.button_shout_under:hover
+a.button_shout_online, input.button_shout_online , a.button_shout_online:hover, input.button_shout_online:hover , a.button_shout_text, input.button_shout_text , a.button_shout_text:hover, input.button_shout_text:hover 
+a.button_shout_config, input.button_shout_config , a.button_shout_config:hover, input.button_shout_config:hover , a.button_shout_rules, input.button_shout_rules, a.button_shout_rules:hover, input.button_shout_rules:hover
+a.button_shout_purge, input.button_shout_purge, a.button_shout_purge_no, input.button_shout_purge_no, a.button_shout_purge:hover, input.button_shout_purge:hover
+a.button_shout_chars, input.button_shout_chars, a.button_shout_chars_no, input.button_shout_chars_no, a.button_shout_chars:hover, input.button_shout_chars:hover
+a.button_shout_robot, input.button_shout_robot, a.button_shout_robot_no, input.button_shout_robot_no, a.button_shout_robot:hover, input.button_shout_robot:hover
+a.button_shout_color, input.button_shout_color, a.button_shout_color_no, input.button_shout_color_no, a.button_shout_color:hover, input.button_shout_color:hover
+a.button_shout_priv, input.button_shout_priv, a.button_shout_priv_no, input.button_shout_priv_no, a.button_shout_priv:hover, input.button_shout_priv:hover
+a.button_shout_popup, input.button_shout_popup, a.button_shout_popup_no, input.button_shout_popup_no, a.button_shout_popup:hover, input.button_shout_popup:hover
+a.button_shout_url, input.button_shout_url, a.button_shout_url_no, input.button_shout_url_no, a.button_shout_url:hover, input.button_shout_url:hover
+a.button_shout_img, input.button_shout_img, a.button_shout_img_no, input.button_shout_img_no, a.button_shout_img:hover, input.button_shout_img:hover
+a.button_shout_smile, input.button_shout_smile, a.button_shout_smile_no, input.button_shout_smile_no, a.button_shout_smile:hover, input.button_shout_smile:hover
+a.button_shout_sound, input.button_shout_sound, a.button_shout_sound:hover, input.button_shout_sound:hover, a.button_shout_sound_off, input.button_shout_sound_off, a.button_shout_sound_off:hover, input.button_shout_sound_off:hover 
+a.button_shout_name, input.button_shout_name, a.button_shout_name_on, input.button_shout_name_on, a.button_shout_name:hover, input.button_shout_name:hover {
+	-webkit-transition-duration: 0.25s;
+	-webkit-transition-property: all;
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-duration: 0.25s;
+	-moz-transition-property: all;
+	-moz-transition-timing-function: ease-in-out;
+	transition-duration: 0.25s;
+	transition-property: all;
+	transition-timing-function: ease-in-out;
+	background-image: url("./images/shout/shout-icon.png");
+}
+a.button_shout_bold, input.button_shout_bold, a.button_shout_bold_no, input.button_shout_bold_no {
+	background-position:-360px 0;
+	width:18px;
+}
+a.button_shout_bold:hover, input.button_shout_bold:hover {
+	background-position:-360px -20px;
+	width:18px;
+}
+a.button_shout_italic, input.button_shout_italic, a.button_shout_italic_no, input.button_shout_italic_no {
+	background-position:-374px 0;
+	width:18px;
+}
+a.button_shout_italic:hover, input.button_shout_italic:hover {
+	background-position:-374px -20px;
+	width:18px;
+}
+a.button_shout_under, input.button_shout_under, a.button_shout_under_no, input.button_shout_under_no {
+	background-position:-391px 0;
+	width:18px;
+}
+a.button_shout_under:hover, input.button_shout_under:hover {
+	background-position:-391px -20px;
+	width:18px;
+}
+a.button_shout_del, input.button_shout_del, a.button_shout_del_no, input.button_shout_del_no {
+	background-position:-409px 0;
+	width:20px;
+	height:22px;
+}
+a.button_shout_del:hover, input.button_shout_del:hover {
+	background-position:-409px -20px;
+	width:20px;
+	height:22px;
+}
+a.button_shout_edit, input.button_shout_edit, a.button_shout_edit_no, input.button_shout_edit_no {
+	background-position:-431px 0;
+	width:20px;
+	height:22px;
+}
+a.button_shout_edit:hover, input.button_shout_edit:hover {
+	background-position:-431px -20px;
+	width:20px;
+	height:22px;
+}
+a.button_shout_ip, input.button_shout_ip, a.button_shout_ip_no, input.button_shout_ip_no {
+	background-position:-450px 0;
+	width:20px;
+	height:22px;
+}
+a.button_shout_ip:hover, input.button_shout_ip:hover {
+	background-position:-450px -21px;
+	width:20px;
+	height:22px;
+}
+a.button_shout_smile, input.button_shout_smile, a.button_shout_smile_no, input.button_shout_smile_no {
+	background-position:0 0;
+}
+a.button_shout_smile:hover, input.button_shout_smile:hover {
+	background-position:0 -21px;
+}
+a.button_shout_img, input.button_shout_img, a.button_shout_img_no, input.button_shout_img_no {
+	background-position:-98px 0;
+}
+a.button_shout_img:hover, input.button_shout_img:hover {
+	background-position:-98px -20px;
+}
+a.button_shout_url, input.button_shout_url, a.button_shout_url_no, input.button_shout_url_no {
+	background-position:-73px 0;
+}
+a.button_shout_url:hover, input.button_shout_url:hover {
+	background-position:-73px -20px;
+}
+a.button_shout_popup, input.button_shout_popup, a.button_shout_popup_no, input.button_shout_popup_no {
+	background-position:-124px 0;
+}
+a.button_shout_popup:hover, input.button_shout_popup:hover {
+	background-position:-124px -20px;
+}
+a.button_shout_priv, input.button_shout_priv, a.button_shout_priv_no, input.button_shout_priv_no {
+	background-position:-197px 0;
+}
+a.button_shout_priv:hover, input.button_shout_priv:hover {
+	background-position:-197px -20px;
+}
+a.button_shout_color, input.button_shout_color, a.button_shout_color_no, input.button_shout_color_no {
+	background-position:-24px 0;
+}
+a.button_shout_color:hover, input.button_shout_color:hover {
+	background-position:-24px -20px;
+}
+a.button_shout_robot, input.button_shout_robot, a.button_shout_robot_no, input.button_shout_robot_no {
+	background-position:-147px 0;
+}
+a.button_shout_robot:hover, input.button_shout_robot:hover {
+	background-position:-147px -20px;
+}
+a.button_shout_chars, input.button_shout_chars, a.button_shout_chars_no, input.button_shout_chars_no {
+	background-position:-48px 0;
+}
+a.button_shout_chars:hover, input.button_shout_chars:hover {
+	background-position:-47px -20px;
+}
+a.button_shout_purge, input.button_shout_purge, a.button_shout_purge_no, input.button_shout_purge_no {
+	background-position:-173px 0;
+}
+a.button_shout_purge:hover, input.button_shout_purge:hover {
+	background-position:-173px -20px;
+}
+a.button_shout_rules, input.button_shout_rules {
+	background-position:-247px 0;
+}
+a.button_shout_rules:hover, input.button_shout_rules:hover {
+	background-position:-247px -20px;
+}
+a.button_shout_config, input.button_shout_config {
+	background-position:-220px 0;
+	height:20px;
+	width:20px;
+}
+a.button_shout_config:hover, input.button_shout_config:hover {
+	background-position: -220px -20px;
+	height:20px;
+	width:20px;
+}
+a.button_shout_text, input.button_shout_text {
+	background-position:-292px 0;
+	height:20px;
+	width:20px;
+}
+a.button_shout_text:hover, input.button_shout_text:hover {
+	background-position:-292px -20px;
+	height:20px;
+	width:20px;
+}
+a.button_shout_online, input.button_shout_online {
+	background-position:-315px 0;
+	height:20px;
+	width:20px;
+}
+a.button_shout_online:hover, input.button_shout_online:hover {
+	background-position:-315px -20px;
+	height:20px;
+	width:20px;
+}
+a.button_shout_sound, input.button_shout_sound {
+	background-position:-335px 0;
+	height:20px;
+	width:20px;
+	-webkit-transition-property:none;
+	-moz-transition-property:none;
+	transition-property:none;
+}
+a.button_shout_sound_off, input.button_shout_sound_off {
+	background-position:-335px -20px;
+	height:20px;
+	width:20px;
+	-webkit-transition-property:none;
+	-moz-transition-property:none;
+	transition-property:none;
+}
+a.button_shout_sound_off:hover, input.button_shout_sound_off:hover, a.button_shout_sound:hover, input.button_shout_sound:hover {
+	background-position:-270px -20px;
+	height:20px;
+	width:20px;
+	-webkit-transition-property:none;
+	-moz-transition-property:none;
+	transition-property:none;
+}
+a.button_shout_name, input.button_shout_name {
+	background-position:-220px 0;
+}
+a.button_shout_name_on, input.button_shout_name_on, a.button_shout_name:hover, input.button_shout_name:hover {
+	background-position:-292px -20px;
+}
+a.button_shout_del_no:hover, input.button_shout_del_no:hover, a.button_shout_edit_no:hover, input.button_shout_edit_no:hover, a.button_shout_ip_no:hover, input.button_shout_ip_no:hover {
+	background-position: -270px 0;
+	width: 20px;
+}
+a.button_shout_under_no:hover, input.button_shout_under_no:hover, a.button_shout_italic_no:hover, input.button_shout_italic_no:hover, a.button_shout_bold_no:hover, input.button_shout_bold_no:hover {
+	background-position: -270px 0;
+	width: 18px;
+}
+a.button_shout_img_no:hover, input.button_shout_img_no:hover, a.button_shout_popup_no:hover, input.button_shout_popup_no:hover, 
+a.button_shout_smile_no:hover, input.button_shout_smile_no:hover, a.button_shout_priv_no:hover, input.button_shout_priv_no:hover, 
+a.button_shout_color_no:hover, input.button_shout_color_no:hover, a.button_shout_url_no:hover, input.button_shout_url_no:hover, 
+a.button_shout_robot_no:hover, input.button_shout_robot_no:hover, a.button_shout_purge_no:hover, input.button_shout_purge_no:hover, 
+a.button_shout_chars_no:hover, input.button_shout_chars_no:hover {
+	background-position: -270px 0;
+}
+li.button_background_grey, dt.button_background_grey, div.button_background_grey {
+	background-image: url("./images/shout/fond/grey.gif");
+}
+li.button_background_grey2, dt.button_background_grey2, div.button_background_grey2 {
+	background-image: url("./images/shout/fond/grey2.gif");
+}
+li.button_background_orange, dt.button_background_orange, div.button_background_orange {
+	background-image: url("./images/shout/fond/orange.gif");
+}
+li.button_background_blue, dt.button_background_blue, div.button_background_blue {
+	background-image: url("./images/shout/fond/blue.gif");
+}
+li.button_background_blue2, dt.button_background_blue2, div.button_background_blue2 {
+	background-image: url("./images/shout/fond/blue2.gif");
+}
+li.button_background_violet, dt.button_background_violet, div.button_background_violet {
+	background-image: url("./images/shout/fond/violet.gif");
+}
+li.button_background_soft, dt.button_background_soft, div.button_background_soft {
+	background-image: url("./images/shout/fond/soft.gif");
+}
+li.button_background_green, dt.button_background_green, div.button_background_green {
+	background-image: url("./images/shout/fond/green.gif");
+}
+li.button_background_red, dt.button_background_red, div.button_background_red {
+	background-image: url("./images/shout/fond/red.gif");
+}
+li.button_background_red2, dt.button_background_red2, div.button_background_red2 {
+	background-image: url("./images/shout/fond/red2.gif");
+}
+li.button_background_transparent, dt.button_background_transparent, div.button_background_transparent {
+	background-image: url("./images/shout/fond/transparent.gif");
+}
+li.button_background_yellow, dt.button_background_yellow, div.button_background_yellow {
+	background-image: url("./images/shout/fond/yellow.gif");
+}
+li.button_background_pink, dt.button_background_pink, div.button_background_pink {
+	background-image: url("./images/shout/fond/pink.gif");
+}
+li.button_background_prosilver, dt.button_background_prosilver, div.button_background_prosilver {
+	background-image: url("./images/shout/fond/prosilver.gif");
+}
+li.button_background_prosilver2, dt.button_background_prosilver2, div.button_background_prosilver2 {
+	background-image: url("./images/shout/fond/prosilver2.gif");
+}
+li.button_background_subsilver2, dt.button_background_subsilver2, div.button_background_subsilver2 {
+	background-image: url("./images/shout/fond/subsilver2.gif");
+}
+li.button_background_subsilver3, dt.button_background_subsilver3, div.button_background_subsilver3 {
+	background-image: url("./images/shout/fond/subsilver3.gif");
+}
+hr.dotted, hr.dashed {
+	background-color: transparent;
+	color: #FFFFFF;
+	width:100%;
+	border:none;
+}
+hr.dotted {
+	border-bottom: dotted #CCCCCC 1px;
+}
+hr.dashed {
+	border-bottom: dashed #CCCCCC 1px;
+}
+/*
+* END MOD Breizh Shoutbox
+----------------------------------------*/

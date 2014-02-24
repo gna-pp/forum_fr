@@ -1,0 +1,7 @@
+Subject: {THANKS_SUBG}
+
+L’utilisateur {USERNAME} a écrit :
+
+{POST_THANKS}: {U_POST_THANKS}
+
+{EMAIL_SIG}

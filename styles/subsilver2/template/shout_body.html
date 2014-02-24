@@ -1,0 +1,177 @@
+<!-- shout_body.html $version {SHOUT_VERSION} //-->
+
+<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<th width="50"><span style="float:left;padding-left:10px;" id="shout1">{SHOUT_TITLE}</span><span style="float:right;padding-right:10px;" id="shout2">{SHOUT_TITLE_V}</span></th>
+	</tr>
+	
+	<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+	<tr id="shout_connect" class="row1" style="display:none;text-align:center;">
+		<td width="1%">
+			<div id="connect_on" class="shout_rules" style="text-align:center;">
+				<form method="post" action="{S_LOGIN_ACTION}">
+				<fieldset style="border:none;" class="quick-login">
+					<label for="username">{L_USERNAME}:</label>&nbsp;<input type="text" name="username" id="username" size="10" class="inputbox" title="{L_USERNAME}" />  
+					<label for="password">{L_PASSWORD}:</label>&nbsp;<input type="password" name="password" id="password" size="10" class="inputbox" title="{L_PASSWORD}" />
+					<!-- IF S_AUTOLOGIN_ENABLED --> | <label for="autologinShout" title="{L_SHOUT_LOG_ME_IN}">{L_SHOUT_LOG_ME_IN} <input type="checkbox" name="autologin" id="autologinShout" /></label><!-- ENDIF -->
+					 | <label for="shout_viewonline" title="{L_HIDE_ME}">{L_SHOUT_HIDE_ME} <input type="checkbox" name="viewonline" id="shout_viewonline" /> </label>
+					<input type="submit" name="login" value="{L_LOGIN}" class="button2" title="{L_LOGIN}" />
+					{S_LOGIN_REDIRECT}
+				</fieldset>
+				</form>
+			</div>
+		</td>
+	</tr>
+	<tr id="shout_name" class="row1" style="display:none;text-align:center;">
+		<td width="1%">
+			<div class="shout_rules">
+				<fieldset style="border:none;" class="quick-login">
+					<label for="shoutname">{L_USERNAME}:</label>&nbsp;&nbsp;<input type="text" name="shoutname" value="{SHOUT_USERNAME}" onfocus="sE('shoutnameyes',2);" id="shoutname" size="15" maxlength="15" class="inputbox" title="{L_USERNAME}" />  
+					<input type="submit" value="{L_SUBMIT}" class="button1" onclick="goName(document.getElementById('shoutname').value);return false;" title="{L_SUBMIT}" /><span id="spanName" style="padding-left:8px;">{L_USERNAME_EXPLAIN}</span>
+					<div id="shoutnameyes" style="display:none;text-align:center;color:green;margin:10px 0 5px;">{L_SHOUT_CHOICE_YES}</div>
+				</fieldset>
+			</div>
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF RULES_TOP -->
+	<tr id="shout_rules" class="row1" style="display:none;text-align:center;">
+		<td id="rules_on" align="center" width="1%">
+			{RULES_TEXT}
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF COLOR_TOP -->
+	<tr id="colour_palette" class="row1" style="display:none;background-color:none;">
+		<td width="1%">
+			<div id="color3" style="padding:12px 0;display:<!-- IF COLOR_PANEL eq 3 -->block<!-- ELSE -->none<!-- ENDIF -->;">
+				<script type="text/javascript" src="{ROOT_PATH}images/shoutbox/jscolor/jscolor.js"></script>
+				<table class="tablebg" width="100%" cellspacing="1">
+					<tr>
+						<td class="row1" width="30%"><b class="genmed">{L_PICK_COLOR}:</b></td>
+						<td class="row2">
+							<input id="picker" class="picker color {pickerClosable:true}" value="0000BF" title="{L_PICK_COLOR}" />
+							<input name="pick_button" value="{L_PICK_BUTON}" title="{L_PICK_BUTON}" type="button" class="button1 btnmain" onclick="if(document.getElementById('shout_user1').disabled==false){supp_text('shout_user1');form_name='formuser';text_name='shout_user1';}else{supp_text('chat_message');form_name='chat_form';text_name='chat_message';};pick_color(document.getElementById('picker').value,form_name,text_name);return false;" />
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="color1" style="margin:0 auto;display:<!-- IF COLOR_PANEL eq 1 -->block<!-- ELSE -->none<!-- ENDIF -->;">
+				<script type="text/javascript">colorPalette('h',18,12);</script>
+			</div>
+			<div id="color2" style="margin:0 auto;display:<!-- IF COLOR_PANEL eq 2 -->block<!-- ELSE -->none<!-- ENDIF -->;">
+				<script type="text/javascript">shoutColorPalette('h',18,12);</script>
+			</div>
+			<div style="padding:8px;">
+				{L_SHOUT_CHOICE_COLOR}: 
+				<select id="select_div_color" name="select_div_color" onchange="active_color('color'+this.value);supp_text('chat_message');">
+					<option value="1" title="{L_SHOUT_PHPBBCOLOR}"<!-- IF COLOR_PANEL eq 1 --> selected="selected"<!-- ENDIF -->>{L_SHOUT_PHPBBCOLOR}</option>
+					<option value="2" title="{L_SHOUT_PHPBB2COLOR}"<!-- IF COLOR_PANEL eq 2 --> selected="selected"<!-- ENDIF -->>{L_SHOUT_PHPBB2COLOR}</option>
+					<option value="3" title="{L_SHOUT_JSCOLOR}"<!-- IF COLOR_PANEL eq 3 --> selected="selected"<!-- ENDIF -->>{L_SHOUT_JSCOLOR}</option>
+				</select>
+			</div>
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF CHARS_TOP -->
+	<tr id="chars_view" class="row1" style="display:none;">
+		<td style="padding-left:0;font-size:1em;width:auto;" width="auto">
+			<script type="text/javascript">specialcharShout();</script>
+		</td>
+		<td class="row1" width="40%">
+			<div style="clear:right;">
+				<div class="shout-chars">{L_SHOUT_CHARS}</div>
+				<div id="zoom" class="shout-zoom">&nbsp;</div>
+				<div id="zoom2" class="shout-zoom2">&nbsp;</div>
+			</div>
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF SMILIES_TOP -->
+	<tr id="smilies_ul" class="row1" style="display:none;padding-bottom:5px;">
+		<td>
+			<div id="smilies" style="padding:8px;"></div>
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF TEXT_USER_TOP -->
+	<tr id="shout_bbcode" class="row1" style="display:none;">
+		<td style="width:1%;">
+			<div class="shout_rules">
+				<h3 style="margin:0 0 10px 0;">{L_SHOUT_PERSO}</h3>
+				<div style="margin-bottom:15px;">{L_SHOUT_DIV_BBCODE_EXPLAIN}</div>
+				<fieldset style="border:none;">
+				<span style="white-space:nowrap;">{L_SHOUT_BBCODE_OPEN}: <input id="shout_text1" class="shout-text-user"  value="{SHOUT_BBCODE1}" /></span>
+				<span style="white-space:nowrap;">{L_SHOUT_BBCODE_CLOSE}: <input id="shout_text2" class="shout-text-user"  value="{SHOUT_BBCODE2}" /></span>
+				<table>
+					<tr class="row1">
+						<td class="shoutexemple row1 bg1"><span id="shoutexemple">{SHOUT_EXEMPLE}</span>
+							<span id="shoutcheck" style="margin:0 6px 0 30px;"></span>
+							<input name="shout_bbcode_user" type="button" class="button1 btnmain" value="{L_SHOUT_PERSO_GO}" title="{L_SHOUT_PERSO_GO}" onclick="shoutReq(document.getElementById('shout_text1').value,document.getElementById('shout_text2').value);return false;" />
+						</td>
+					</tr>
+				</table>
+				</fieldset>
+			</div>
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF ONLINE_TOP -->
+	<tr id="shout_online" class="row1" style="display:none;">
+		<td style="padding:3px;">
+			<h3 style="margin:4px 0 12px 0;">{L_SHOUT_ONLINE_TITLE}</h3>
+			<div id="online_shout"></div>
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF ACTION_USERS_TOP -->
+	<tr id="user_action" class="row1" style="display:none;">
+		<td style="width:1%;">
+			<form method="post" id="formuser" action="javascript:sendUserAction();">
+			<h3 id="h3_action_title">{L_SHOUT_ACTION_TITLE}<span id="h3user"></span></h3>
+			<div id="onText"></div>
+			<hr class="dotted" />
+			<div class="shout_rules">
+				<div style="float:right;"><a href="javascript:void(0);" onclick="closeAction();"><img src="{ROOT_PATH}images/shoutbox/shout_no.png" title="{L_SHOUT_DIV_CLOSE}" alt="{L_SHOUT_DIV_CLOSE}" onmouseout="iH('onText','');" onmouseover="iH('onText',this.title);" /></a></div>
+				<div id="user_shout" style="float:left;margin-left:10px;"><div id="shout_avatar"></div><div id="shout_url"></div></div>
+				<div id="msg_user_shout" style="display:none;">
+					<div id="shoutMsg">{L_SHOUT_ACTION_MSG}:</div>
+					<div class="profile-shout">
+						<fieldset>
+						<input id="shout_user1" name="shout_user1" disabled="disabled" class="shout-text-user" style="margin-right:15px;color:#9A9A9A" value="{L_SHOUT_AUTO}" onclick="supp_text('shout_user1');" onblur="add_text('shout_user1');" onfocus="supp_text('shout_user1');" />
+						<input name="shout_msg_user" type="button" class="button1 btnmain" value="{L_SUBMIT}" title="{L_SUBMIT}" onclick="sendUserAction();return false;" />
+						<input id="user_inp" name="user_inp" type="hidden" disabled="disabled" value="0" />
+						<input id="user_inp_sort" name="user_inp_sort" type="hidden" disabled="disabled" value="{SHOUT_INP_SORT}" />
+						</fieldset>
+						<div id="user_cite" style="display:none;"></div>
+					</div>
+				</div>
+			</div>
+			</form>
+		</td>
+	</tr>
+	<!-- ELSE -->
+	<fieldset style="display:none;"><input id="shout_user1" name="shout_user1" style="display:none;" disabled="disabled" /></fieldset>
+	<div id="user_cite" style="display:none;"></div>
+	<!-- ENDIF -->
+	<tr>
+		<td class="row1" width="100%" style="padding:0;">
+			<div id="shoutbox"></div>
+		</td>
+	</tr>
+</table>
+<div id="shout-fields" style="display:none;"></div>
+<div class="div_sound" id="div_sound"></div><div class="div_sound" id="div_sound_error"></div><div class="div_sound" id="div_sound_del"></div>
+{SHOUT_SCRIPT}
+<noscript>
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<td width="100%" class="row1" align="center">
+				<p align="left"><img alt="{L_NO_AJAX_USER}" title="{L_NO_AJAX_USER}" src="{ROOT_PATH}images/shoutbox/alert.png" /></p>
+				<a class="forumlink" style="color:red;">{L_NO_AJAX_USER}</a>
+			</td>
+		</tr>
+	</table>
+</noscript>
+<br />
+<!-- shout_body.html end //-->

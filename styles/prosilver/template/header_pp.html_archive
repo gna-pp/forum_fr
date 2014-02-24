@@ -1,0 +1,40 @@
+<div id="header">
+	<div class="menu">
+	<ul>
+		<li><a href="{L_URLPP}">{L_PARTIPIRATE}</a></li>
+		<li><a href="{L_URLPP}/blog/com.php?id=213">{L_POLITIQUE}</a>
+			<ul><li><a href="{L_URLPP}/qui-sommes-nous/">{L_NOUS}</a></li>
+				<li><a href="{L_URLPP}/blog/com.php?id=213">{L_PRESENTATION}</a></li>
+				<li><a href="{L_URLPP}/blog/com.php?id=214">{L_POLITIQUEGEN}</a></li>
+				<li><a href="{L_URLPP}/blog/?cat=6">{L_BLOGPOLITIQUE}</a></li>
+				<li><a href="{L_URLDDI}">{L_DDI}</a></li>				
+				<li><a href="{L_URLPP}/faq/">{L_FAQ}</a></li>				
+			</ul>
+		</li>
+		<li><a href="{L_URLPP}/blog/?cat=7">{L_CULTURE}</a>
+			<ul>
+				<li><a href="{L_URLPP}/radio/">{L_RADIO}</a></li>
+				<li><a href="{L_URLPP}/blog/?cat=7">{L_BLOGCULTURE}</a></li>
+				<li><a href="{L_URLPP}/compilpirate/">{L_COMP1}</a></li>
+				<li><a href="{L_URLPP}/compilpiratevol2/">{L_COMP2}</a></li>
+			</ul>
+		</li>
+		<li><a href="{U_INDEX}">{L_COMMUNAUTE}</a>
+			<ul>
+				<li><a href="{U_INDEX}">{L_FORUM}</a></li>
+				<li><a href="{L_URLWIKI}">{L_WIKI}</a></li>				
+				<li><a href="{L_URLPP}/irc/">{L_IRC}</a></li>
+				<li><a href="{L_URLPP}/blogs/">{L_BLOGS}</a></li>
+				<li><a href="{L_URLJPP}">{L_JEUNESPP}</a></li>				
+			</ul>
+		</li>			
+		<li><a href="{L_URLPP}/affiches/">{L_GOODIES}</a>
+			<ul>
+				<li><a href="{L_URLPP}/affiches/">{L_AFFICHES}</a></li>
+				<li><a href="{L_URLPP}/affiches/">{L_BANNIERES}</a></li>
+			</ul>
+		</li>					
+		<li><a href="{L_URLPP}/contact/">{L_CONTACT}</a></li>
+	</ul>
+</div>
+</div>

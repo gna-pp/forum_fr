@@ -1,0 +1,303 @@
+<!-- IF S_IN_SHOUT_SMILIES -->
+<!-- INCLUDE simple_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+if(opener.document.getElementById('chat_message').disabled==false){var form_name='chat_form',text_name='chat_message';
+}else{var form_name='formuser',text_name='shout_user1';}
+function shout_insert_text(text){
+	var textarea;
+	textarea=opener.document.forms[form_name].elements[text_name];
+	text=' '+text+' ';
+	textarea.value=textarea.value.replace('{L_SHOUT_AUTO}','');
+	textarea.style.color='black';
+	if (!isNaN(textarea.selectionStart)){
+		var sel_start=textarea.selectionStart;
+		var sel_end=textarea.selectionEnd;
+		mozWrap(textarea,text,'');
+		textarea.selectionStart=sel_start+text.length;
+		textarea.selectionEnd=sel_end+text.length;
+	}else if(textarea.createTextRange&&textarea.caretPos){
+		if(baseHeight!=textarea.caretPos.boundingHeight){textarea.focus();storeCaret(textarea);}
+		var caret_pos=textarea.caretPos;
+		caret_pos.text=caret_pos.text.charAt(caret_pos.text.length-1)==' '?caret_pos.text+text+' ':caret_pos.text+text;
+	}else{textarea.value=textarea.value+text;}
+}
+// ]]>
+</script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/editor.js"></script>
+
+<table width="100%" cellspacing="1" cellpadding="4" border="0">
+	<tr>
+		<td>
+			<table class="tablebg" width="100%" cellspacing="1" cellpadding="4" border="0">
+				<tr>
+					<th>{L_SMILIES}</th>
+				</tr>
+				<tr>
+					<td class="row1" align="center" valign="middle">
+					<!-- BEGIN smiley --> 
+						<a href="#" onclick="shout_insert_text('{smiley.A_SMILEY_CODE}');return false;">{smiley.SMILEY_IMG}</a>
+					<!-- END smiley	-->
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<br />
+<span style="padding-left:25px;"><a class="nav" href="#" onclick="window.close();return false;" title="{L_CLOSE_WINDOW}">{L_CLOSE_WINDOW}</a></span>
+
+<div id="wrapfooter">
+	<span class="copyright" style="padding-top:6px;"><em>{SHOUTBOX_VERSION}</em></span>
+</div>
+<!-- INCLUDE simple_footer.html -->
+
+<!-- ELSEIF S_IN_PRIV -->
+
+<!-- INCLUDE overall_header.html -->
+
+<!-- INCLUDE shout_body.html -->
+
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat" colspan="2"><!-- IF U_VIEWONLINE --><h4><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h4><!-- ELSE --><h4>{L_WHO_IS_ONLINE}</h4><!-- ENDIF --></td>
+	</tr>
+	<tr>
+		<td class="row1" align="center" valign="middle"><img src="{T_THEME_PATH}/images/whosonline.gif" alt="{L_WHO_IS_ONLINE}" /></td>
+		<td class="row1" width="100%"><span class="genmed">{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{LOGGED_IN_USER_LIST}</span></td>
+	</tr>
+</table>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->
+
+<!-- ELSEIF S_IN_SHOUT_POP -->
+
+<!-- INCLUDE simple_header.html -->
+
+<!-- INCLUDE shout_body.html -->
+
+<!-- INCLUDE simple_footer.html -->
+
+<!-- ELSEIF S_IN_CONFIG -->
+
+<!-- INCLUDE simple_header.html -->
+<script type="text/javascript">
+// <![CDATA[
+function displayInfos(divid1,divid2){
+	document.getElementById(divid1).style.display='block';document.getElementById(divid2).style.display='none';
+}
+function changeValue(value,spanid){
+	value=value.replace(':','');value=value.replace('A','');
+	document.getElementById(spanid).innerHTML=value;
+}
+// ]]>
+</script>
+
+<form id="config_shout" name="config_shout" method="post" action="{U_SHOUT_ACTION}">
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_SHOUT_PANEL_USER}</th>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2" style="padding:5px;text-align:center;">
+				<p id="info1" style="display:{USER_CORRECT_DISP};"><span style="color:green">{L_CHOOSE_NEW_YES}: </span><strong>&ldquo;<span id="sound_new">{USER_SOUND_INFO}</span>&rdquo;</strong></p>
+				<p id="info2" style="display:{USER_CORRECT_DISP2};"><span style="color:red">{L_CHOOSE_NEW_NO}</span><!-- IF DATE_CORRECT --><br /><span style="color:green;">{L_SHOUT_MINUTES_YES}</span><!-- ENDIF --></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%">
+				<p id="info3" style="display:{SOUND_ERROR_DISP};"><span style="color:green;float:right;">{L_CHOOSE_ERROR_YES}: </span></p>
+				<p id="info3_no" style="display:{SOUND_ERROR_DISP2};"><span style="color:red;float:right;">{L_CHOOSE_ERROR_NO}</span></p>
+			</td>
+			<td class="row2">
+				<span style="padding-left:15px;"><strong>&ldquo;<span id="sound_error">{USER_SOUND_INFO_E}</span>&rdquo;</strong></span>
+			</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%">
+				<p id="info4" style="display:{SOUND_DEL_DISP};"><span style="color:green;float:right;">{L_CHOOSE_DELETE_YES}: </span></p>
+				<p id="info4_no" style="display:{SOUND_DEL_DISP2};"><span style="color:red;float:right;">{L_CHOOSE_DELETE_NO}</span></p>
+			</td>
+			<td class="row2">
+				<span style="padding-left:15px;"><strong>&ldquo;<span id="sound_del">{USER_SOUND_INFO_D}</span>&rdquo;</strong></span>
+			</td>
+		</tr>
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_CHOOSE_NEW_SOUND}:</th>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2" style="text-align:center;padding:5px;">{EXPLAIN_DATE}</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%"><strong>{L_SOUND_OR_NOT}:</strong></td>
+			<td class="row2">
+				<label><input type="radio" name="user_correct" onclick="displayInfos('info1','info2');play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not USER_CORRECT --> checked="checked"<!-- ENDIF --> /> <span class="genmed">{L_SHOUT_SOUND_YES}</span>&nbsp;&nbsp;</label>
+				<label><input type="radio" name="user_correct" onclick="displayInfos('info2','info1');play_sound('new/discretion.swf',1,true);" value="1"<!-- IF USER_CORRECT --> checked="checked"<!-- ENDIF --> /> <span class="genmed">{L_SHOUT_SOUND_MINUTES}</span></label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" class="row1" style="padding:5px;">
+				<div style="padding-top:8px;text-align:left;padding-left:18%;width:70%;">{NEW_SOUND}</div>
+			</td>
+		</tr>
+
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_CHOOSE_ERROR_SOUND}:</th>
+		</tr>
+		<tr>
+			<td colspan="2" class="row1" style="padding:5px;">
+				<div style="padding-top:8px;text-align:left;padding-left:18%;width:70%;">{ERROR_SOUND}</div>
+			</td>
+		</tr>
+
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_CHOOSE_DEL_SOUND}:</th>
+		</tr>
+		<tr>
+			<td colspan="2" class="row1" style="padding:5px;">
+				<div style="padding-top:8px;text-align:left;padding-left:18%;width:70%;">{DEL_SOUND}</div>
+			</td>
+		</tr>
+
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_ACP_SHOUT_CONFIGS_T}</th>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_BAR}:</strong><br />{L_SHOUT_USER_CONFIG}</td>
+			<td class="row2">
+				<label><input type="radio" name="shout_bar" onclick="play_sound('new/discretion.swf',1,true);" value="1"<!-- IF SHOUT_BAR --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_TOP}&nbsp;&nbsp;</label>
+				<label><input type="radio" name="shout_bar" onclick="play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not SHOUT_BAR --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_BOTTOM}</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_PAGIN}:</strong><br />{L_SHOUT_USER_PAGIN}</td>
+			<td class="row2">
+				<label><input type="radio" name="shout_pagin" onclick="play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not SHOUT_PAGIN --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_BOTTOM}&nbsp;&nbsp;</label>
+				<label><input type="radio" name="shout_pagin" onclick="play_sound('new/discretion.swf',1,true);" value="1"<!-- IF SHOUT_PAGIN --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_PAGIN_IN}</label>
+			</td>
+		</tr>
+		
+		<!-- IF PERM_POP -->
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_ACP_SHOUT_POPUP}</th>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_BAR}:</strong><br />{L_SHOUT_USER_CONFIG}</td>
+			<td class="row2">
+				<label><input type="radio" name="shout_bar_pop" onclick="play_sound('new/discretion.swf',1,true);" value="1"<!-- IF SHOUT_BAR_POP --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_TOP}&nbsp;&nbsp;</label>
+				<label><input type="radio" name="shout_bar_pop" onclick="play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not SHOUT_BAR_POP --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_BOTTOM}</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_PAGIN}:</strong><br />{L_SHOUT_USER_PAGIN}</td>
+			<td class="row2">
+				<label><input type="radio" name="shout_pagin_pop" onclick="play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not SHOUT_PAGIN_POP --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_BOTTOM}&nbsp;&nbsp;</label>
+				<label><input type="radio" name="shout_pagin_pop" onclick="play_sound('new/discretion.swf',1,true);" value="1"<!-- IF SHOUT_PAGIN_POP --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_PAGIN_IN}</label>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		
+		<!-- IF PERM_PRIV -->
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_ACP_SHOUT_CONFIG_PRIV}</th>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_BAR}:</strong><br />{L_SHOUT_USER_CONFIG}</td>
+			<td class="row2">
+				<label><input type="radio" name="shout_bar_priv" onclick="play_sound('new/discretion.swf',1,true);" value="1"<!-- IF SHOUT_BAR_PRIV --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_TOP}&nbsp;&nbsp;</label>
+				<label><input type="radio" name="shout_bar_priv" onclick="play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not SHOUT_BAR_PRIV --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_BOTTOM}</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_PAGIN}:</strong><br />{L_SHOUT_USER_PAGIN}</td>
+			<td class="row2">
+				<label><input type="radio" name="shout_pagin_priv" onclick="play_sound('new/discretion.swf',1,true);" value="0"<!-- IF not SHOUT_PAGIN_PRIV --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_BAR_BOTTOM}&nbsp;&nbsp;</label>
+				<label><input type="radio" name="shout_pagin_priv" onclick="play_sound('new/discretion.swf',1,true);" value="1"<!-- IF SHOUT_PAGIN_PRIV --> checked="checked"<!-- ENDIF --> /> {L_SHOUT_PAGIN_IN}</label>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		
+		<tr><td class="row1">&nbsp;</td><td class="row1">&nbsp;</td></tr>
+		
+		<tr>
+			<th class="titre" colspan="2" valign="middle">{L_CHOOSE_POSITIONS}</th>
+		</tr>
+		<!-- IF IS_INDEX -->
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_POSITION_INDEX}:</strong><br /><br />{L_SHOUT_POSITION_INDEX_EXPLAIN}</td>
+			<td class="row2" style="padding-left:15px;">
+				<select class="diz" title="{W_INDEX}" id="pos_index" name="pos_index" onclick="play_sound('new/discretion.swf',1,true);">
+					<option title="{L_SHOUT_POSITION_TOP}" value="0"<!-- IF ON_INDEX == 0 --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_TOP}</option>
+					<option title="{L_SHOUT_POSITION_AFTER}" value="1"<!-- IF ON_INDEX == 1 --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_AFTER}</option>
+					<option title="{L_SHOUT_POSITION_END}" value="2"<!-- IF ON_INDEX == 2 --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_END}</option>
+				</select>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		<!-- IF IS_FORUM -->
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_POSITION_FORUM}:</strong><br /><br />{L_SHOUT_POSITION_FORUM_EXPLAIN}</td>
+			<td class="row2" style="padding-left:15px;">
+				<select class="diz" id="pos_forum" name="pos_forum" onclick="play_sound('new/discretion.swf',1,true);">
+					<option title="{L_SHOUT_POSITION_TOP}" value="0"<!-- IF not ON_FORUM --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_TOP}</option>
+					<option title="{L_SHOUT_POSITION_END}" value="1"<!-- IF ON_FORUM --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_END}</option>
+				</select>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		<!-- IF IS_TOPIC -->
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_POSITION_TOPIC}:</strong><br /><br />{L_SHOUT_POSITION_TOPIC_EXPLAIN}</td>
+			<td class="row2" style="padding-left:15px;">
+				<select class="diz" id="pos_topic" name="pos_topic" onclick="play_sound('new/discretion.swf',1,true);">
+					<option title="{L_SHOUT_POSITION_TOP}" value="0"<!-- IF not ON_TOPIC --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_TOP}</option>
+					<option title="{L_SHOUT_POSITION_END}" value="1"<!-- IF ON_TOPIC --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_END}</option>
+				</select>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_POSITION_ANOTHER}:</strong><br /><br />{L_SHOUT_POSITION_ANOTHER_EXPLAIN}</td>
+			<td class="row2" style="padding-left:15px;">
+				<select class="diz" id="pos_another" name="pos_another" onclick="play_sound('new/discretion.swf',1,true);">
+					<option title="{L_SHOUT_POSITION_TOP}" value="0"<!-- IF not ON_ANOTHER --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_TOP}</option>
+					<option title="{L_SHOUT_POSITION_END}" value="1"<!-- IF ON_ANOTHER --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_END}</option>
+				</select>
+			</td>
+		</tr>
+		
+		<!-- IF IS_PORTAL -->
+		<tr>
+			<td class="row1" width="50%" style="padding-left:8px;"><strong>{L_SHOUT_POSITION_PORTAL}:</strong><br /><br />{L_SHOUT_POSITION_PORTAL_EXPLAIN}</td>
+			<td class="row2" style="padding-left:15px;">
+				<select class="diz" id="pos_portal" name="pos_portal" onclick="play_sound('new/discretion.swf',1,true);">
+					<option title="{L_SHOUT_POSITION_TOP}" value="0"<!-- IF not ON_PORTAL --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_TOP}</option>
+					<option title="{L_SHOUT_POSITION_END}" value="1"<!-- IF ON_PORTAL --> selected="selected"<!-- ENDIF -->>{L_SHOUT_POSITION_END}</option>
+				</select>
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		<tr>
+			<td class="row1" colspan="2" style="padding:15px;text-align:center;">
+				<input id="onSound" type="hidden" value="0">
+				<input class="btnmain special" type="submit" id="submit" name="submit" value="{L_SUBMIT}" title="{L_SUBMIT}" onclick="window.parent.opener.location.reload();play_sound('new/discretion.swf',1,true);" />&nbsp;&nbsp;&nbsp;
+				<input class="btnlite special" type="reset" id="reset" name="reset" value="{L_RESET}" title="{L_RESET}" onclick="play_sound('new/discretion.swf',1,true);" />&nbsp;
+				<input class="btnlite special" type="submit" id="retour" name="retour" value="{L_SHOUT_DEF_VAL}" title="{L_SHOUT_DEF_VAL_EXPLAIN}" onclick="play_sound('new/discretion.swf',1,true);" />
+			</td>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2" style="padding:5px;text-align:center;"><em>{SHOUTBOX_VERSION}</em></td>
+		</tr>
+	</table>
+</form>
+<div class="div_sound" id="div_sound"></div><div class="div_sound" id="div_sound_error"></div><div class="div_sound" id="div_sound_del"></div>
+
+<!-- INCLUDE simple_footer.html -->
+
+<!-- ENDIF -->
+
+<!-- shout_template.html end //-->

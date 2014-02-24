@@ -1,0 +1,72 @@
+<!--
+* styles/subsilver2/template/chat_body.html
+*
+* @package Chat
+* @version 0.2
+* @copyright (c) 2008 phpBB3.PL Group
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+-->
+<!-- BEGIN chat -->
+<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="{T_THEME_PATH}/chat-ie.css"/><![endif]-->
+<!-- BEGIN ajax -->
+<script type="text/javascript">
+function prepareChat()
+{
+	chat.lang = {ajax.LANG};
+
+	chat.template = chat_template;
+	chat_template = undefined; // It was moved, so it can be deleted.
+
+	chat.updater.action = '{ajax.GETNEW_URL}';
+	chat.updater.lastMessageID = '{ajax.LAST_MESSAGE_ID}';
+
+	chat.construct();
+}
+window.onload=prepareChat;
+</script>
+<script type="text/javascript" src="./chat.js"></script>
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/chat.js"></script>
+<!-- END ajax -->
+<div class="inner" id="chatbox">
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tr><td class="cat" colspan="2"><h4>{L_CHAT}</h4></td></tr>
+	</table>
+	<div id="chat_overflow">
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tbody id="chat_messages">
+			<!-- BEGIN messages -->
+			<th width="100%" colspan="2" id="{messages.ID}">{messages.DATE}</th>
+			<!-- BEGIN message -->
+			<tr id="{message.ID}">
+				<td class="row1 chat_info"><div class="chat_author">{message.AUTHOR}</div>
+					<div class="chat_time">{message.TIME}</div>
+					<!-- IF message.DELETE -->
+					<div class="chat_actions">
+						<a href="{message.DELETE}">x</a>
+					</div>
+					<!-- ENDIF -->
+				</td>
+				<td class="row1 chat_text">{message.TEXT}</td>
+			</tr>
+			<!-- END message -->
+			<!-- END messages -->
+		</tbody>
+	</table>
+	</div>
+	<!-- BEGIN post -->
+	<form id="chat_posting" method="post" action="{post.ACTION}" onsubmit="return chat.postingEngine.post(this)">
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<td class="row2" style="width:10%"><span>{L_MESSAGE}:</span></td>
+			<td class="row2" style="width:80%"><input type="text" name="message" id="chat_message" class="inputbox" maxlength="250"/></td>
+			<td class="row2" style="width:10%"><input id="chat_posting_submit" type="submit" value="{L_SUBMIT}"/></td>
+		</tr>
+	</table>
+	</form>
+	<!-- END post -->
+	<!-- BEGIN no_post -->
+	<span id="chat_login_post">{no_post.MESSAGE}</span>
+	<!-- END no_post -->
+</div>
+<!-- END chat -->

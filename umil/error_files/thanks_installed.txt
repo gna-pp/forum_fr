@@ -1,0 +1,8 @@
+Thanks for the post
+PHP Version: 5.3.3-7+squeeze14
+DBMS: MySQL(i) 5.5.27-1~dotdeb.0-log
+phpBB3 Version: 3.0.11
+
+Rafraîchissement du template prosilver
+ERREUR : il n’a pas été possible d’ouvrir le fichier ./styles/prosilverannouncement_centre.html afin de le lire.
+
